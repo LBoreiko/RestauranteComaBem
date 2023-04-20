@@ -1,4 +1,4 @@
-package br.com.pr.senai.restaurantecomabem;
+package br.com.pr.senai.restaurantecomabem.view;
 
 import android.os.Bundle;
 
@@ -13,6 +13,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import br.com.pr.senai.restaurantecomabem.R;
 import br.com.pr.senai.restaurantecomabem.databinding.ActivityMainBinding;
 
 import android.view.Menu;

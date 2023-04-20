@@ -1,4 +1,4 @@
-package br.com.pr.senai.restaurantecomabem;
+package br.com.pr.senai.restaurantecomabem.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import br.com.pr.senai.restaurantecomabem.R;
 import br.com.pr.senai.restaurantecomabem.databinding.ActivitySplashScreenBinding;
 
 public class SplashScreenActivity extends AppCompatActivity {
