@@ -1,5 +1,6 @@
 package br.com.pr.senai.restaurantecomabem.model;
 
+import android.content.Context;
 import android.os.Build;
 
 import androidx.annotation.NonNull;
@@ -12,8 +13,6 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import java.time.LocalDate;
 
-import br.com.pr.senai.restaurantecomabem.Main;
-
 @Database(entities = {Cardapio.class}, version = 1, exportSchema = false)
 @TypeConverters({DateConverter.class})
 public abstract class CardapioDatabase extends RoomDatabase {
@@ -21,9 +20,9 @@ public abstract class CardapioDatabase extends RoomDatabase {
 
     public abstract CardapioDao cardapioDao();
 
-    static CardapioDatabase getInstance() {
+    static CardapioDatabase getInstance(Context context) {
         if(database == null) {
-            database = Room.databaseBuilder(Main.getContext(), CardapioDatabase.class, "cardapiodb")
+            database = Room.databaseBuilder(context.getApplicationContext(), CardapioDatabase.class, "cardapiodb")
                     .fallbackToDestructiveMigration()
                     // Como inserir dados na Criação do Database
                     .addCallback(new Callback() {

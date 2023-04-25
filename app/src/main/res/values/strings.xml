@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Restaurante Coma Bem</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Opções</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">Lista do Cardápio</string>
     <string name="second_fragment_label">Cadastro de Produtos</string>
@@ -13,4 +13,5 @@
     <string name="nome_da_descricao">Descrição do Produto</string>
     <string name="salvar">Salvar</string>
     <string name="data_de_lancamento">Data de Inclusão</string>
+    <string name="novo_produto">Novo Produto</string>
 </resources>

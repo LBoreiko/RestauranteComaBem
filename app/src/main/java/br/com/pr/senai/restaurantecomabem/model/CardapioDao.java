@@ -1,6 +1,6 @@
 package br.com.pr.senai.restaurantecomabem.model;
 
-import androidx.paging.DataSource;
+import androidx.paging.PagingSource;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
@@ -18,15 +18,9 @@ public interface CardapioDao {
     @Query("select * from cardapio where id = :id")
     Cardapio localizar(long id);
 
-    @Query("delete from cardapio where del = '1'")
-    void removerMarcados();
-
-    @Query("select count(*) from cardapio where del ='1'")
-    int existeCardapiosADeletar();
-
-    @Query("update cardapio set del ='0' where del = '1'")
-    void limparMarcados();
+    @Query("delete from cardapio where id = :id")
+    void remover(long id);
 
     @Query("select * from cardapio order by produto")
-    DataSource.Factory<Integer, Cardapio> getCardapiosPorNome();
+    PagingSource<Integer, Cardapio> getCardapiosPorNome();
 }

@@ -1,23 +1,39 @@
 package br.com.pr.senai.restaurantecomabem.model;
 
-import androidx.lifecycle.LiveData;
-import androidx.paging.LivePagedListBuilder;
-import androidx.paging.PagedList;
+import android.content.Context;
+
+import androidx.paging.Pager;
+import androidx.paging.PagingConfig;
+import androidx.paging.PagingData;
+import androidx.paging.rxjava3.PagingRx;
 
 import java.util.concurrent.ExecutionException;
 
+import io.reactivex.rxjava3.core.Flowable;
+
 
 public class CardapioRepository {
-    private CardapioDao dao;
-    private LiveData<PagedList<Cardapio>> cardapios;
+    private final CardapioDao dao;
+    private Flowable<PagingData<Cardapio>> cardapios;
 
-    public CardapioRepository() {
-        CardapioDatabase db = CardapioDatabase.getInstance();
+    public CardapioRepository(Context context) {
+        CardapioDatabase db = CardapioDatabase.getInstance(context);
         dao = db.cardapioDao();
-        cardapios = new LivePagedListBuilder<>(dao.getCardapiosPorNome(), 5).build();
+        cardapios = getCardapios();
     }
 
-    public LiveData<PagedList<Cardapio>> getCardapios() {
+    public Flowable<PagingData<Cardapio>> getCardapios() {
+        if(cardapios == null) {
+            cardapios = PagingRx.getFlowable(
+                    new Pager<>(
+                            new PagingConfig(
+                                    20,
+                                    5,
+                                    false,
+                                    40,
+                                    100),
+                            dao::getCardapiosPorNome));
+        }
         return cardapios;
     }
 
@@ -37,19 +53,7 @@ public class CardapioRepository {
         }
     }
 
-    public void removerMarcados() {
-        new Action<Void>(__ -> dao.removerMarcados()).execute();
-    }
-
-    public int existeCardapiosADeletar() throws DataBaseException {
-        try {
-            return new Query<Void, Integer>(__ -> dao.existeCardapiosADeletar()).execute().get();
-        } catch (ExecutionException | InterruptedException ex) {
-            throw new DataBaseException(("Falha em determinar se existem Cardápios à remover"));
-        }
-    }
-
-    public void limparMarcados() {
-        new Action<Void>(__ -> dao.limparMarcados()).execute();
+    public void remover(long idCardapio) {
+        new Action<>(dao::remover).execute(idCardapio);
     }
 }

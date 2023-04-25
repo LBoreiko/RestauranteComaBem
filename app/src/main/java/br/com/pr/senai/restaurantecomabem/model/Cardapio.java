@@ -36,6 +36,13 @@ public class Cardapio {
         return null;
     }
 
+    public String getDataDeLancamentoReduzido() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            return lancamento.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        }
+        return null;
+    }
+
 
     public void setDataDeLancamento(String data) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {

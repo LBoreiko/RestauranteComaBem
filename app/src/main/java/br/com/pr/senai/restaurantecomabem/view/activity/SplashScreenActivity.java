@@ -1,4 +1,4 @@
-package br.com.pr.senai.restaurantecomabem.view;
+package br.com.pr.senai.restaurantecomabem.view.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
