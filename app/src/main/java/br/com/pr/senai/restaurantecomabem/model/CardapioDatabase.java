@@ -33,10 +33,11 @@ public abstract class CardapioDatabase extends RoomDatabase {
                                 new Action<Cardapio>(obj -> database.cardapioDao().inserir(obj))
                                         .execute(Cardapio.builder()
                                                 .id(0L)
-                                                .produto("Strogonoff")
-                                                .descricao("Arroz, Strogonoff e Batata Palha")
+                                                .produto("Scargot")
+                                                .descricao("Scargot na Manteiga")
                                                 .lancamento(LocalDate.of(2022, 11, 27))
                                                 .cozinheiro(null)
+                                                .foto(null)
                                                 .del(false)
                                                 .build());
                             }

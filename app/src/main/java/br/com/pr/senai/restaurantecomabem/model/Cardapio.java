@@ -26,6 +26,7 @@ public class Cardapio {
     private String descricao;
     private LocalDate lancamento;
     private String cozinheiro;
+    private String foto;
     private boolean del;
 
 

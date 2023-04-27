@@ -14,4 +14,9 @@
     <string name="salvar">Salvar</string>
     <string name="data_de_lancamento">Data de Inclusão</string>
     <string name="novo_produto">Novo Produto</string>
+    <string name="nome_do_prato">Nome do Prato</string>
+    <string name="nome_do_cozinheiro">Cozinheiro Chefe</string>
+    <string name="ac_tirar_foto">Câmera</string>
+    <string name="ac_galeria_foto">Galeria de Fotos</string>
+    <string name="ac_excluir_foto">Excluir Foto</string>
 </resources>

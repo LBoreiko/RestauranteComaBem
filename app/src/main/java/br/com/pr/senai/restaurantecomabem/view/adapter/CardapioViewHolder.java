@@ -1,7 +1,12 @@
 package br.com.pr.senai.restaurantecomabem.view.adapter;
 
+import android.net.Uri;
+import android.widget.ImageView;
+
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
 
 import java.util.Optional;
 
@@ -30,9 +35,17 @@ public class CardapioViewHolder extends RecyclerView.ViewHolder {
             binding.tvDescricao.setText(cardapio.getDescricao());
             binding.tvChefe.setText(cardapio.getCozinheiro());
             binding.tvData.setText(cardapio.getDataDeLancamento());
-            //carregaFoto(binding.ivPratos, cardapio.getProduto());
+            carregaFoto(binding.ivPratos, cardapio.getFoto());
 
             binding.getRoot().setOnClickListener(__ -> listener.onClick(cardapio));
+        }
+    }
+    private void carregaFoto(ImageView foto, String prato) {
+        if(foto != null) {
+            Glide.with(activity)
+                    .load(Uri.parse(prato))
+                    .fitCenter()
+                    .into(foto);
         }
     }
 

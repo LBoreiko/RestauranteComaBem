@@ -58,6 +58,12 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment:2.5.3'
     implementation 'androidx.navigation:navigation-ui:2.5.3'
 
+    // Implementa Imgage Capture/Crop
+    implementation 'com.github.dhaval2404:imagepicker:2.1'
+
+    // Implementa a carga de Imagens em ImageViews
+    implementation 'com.github.bumptech.glide:glide:4.15.0'
+
     // Testes
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
