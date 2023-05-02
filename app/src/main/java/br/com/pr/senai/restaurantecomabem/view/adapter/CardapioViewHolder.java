@@ -41,7 +41,7 @@ public class CardapioViewHolder extends RecyclerView.ViewHolder {
         }
     }
     private void carregaFoto(ImageView foto, String prato) {
-        if(foto != null) {
+        if(prato != null) {
             Glide.with(activity)
                     .load(Uri.parse(prato))
                     .fitCenter()
