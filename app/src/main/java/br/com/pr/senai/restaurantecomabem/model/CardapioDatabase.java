@@ -30,16 +30,16 @@ public abstract class CardapioDatabase extends RoomDatabase {
                         public void onOpen(@NonNull SupportSQLiteDatabase db) {
                             super.onOpen(db);
                             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                                new Action<Cardapio>(obj -> database.cardapioDao().inserir(obj))
-                                        .execute(Cardapio.builder()
-                                                .id(0L)
-                                                .produto("Scargot")
-                                                .descricao("Scargot na Manteiga")
-                                                .lancamento(LocalDate.of(2022, 11, 27))
-                                                .cozinheiro(null)
-                                                .foto(null)
-                                                .del(false)
-                                                .build());
+//                                new Action<Cardapio>(obj -> database.cardapioDao().inserir(obj))
+//                                        .execute(Cardapio.builder()
+//                                                .id(0L)
+//                                                .produto("Scargot")
+//                                                .descricao("Scargot na Manteiga")
+//                                                .lancamento(LocalDate.of(2022, 11, 27))
+//                                                .cozinheiro(null)
+//                                                .foto(null)
+//                                                .del(false)
+//                                                .build());
                             }
                         }
                     })

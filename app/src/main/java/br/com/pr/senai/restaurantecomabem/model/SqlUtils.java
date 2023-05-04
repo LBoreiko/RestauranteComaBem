@@ -9,6 +9,7 @@ import java.time.ZoneId;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
 
 interface DataBaseAction <Tipo> {
     void doAction(Tipo obj);
@@ -23,11 +24,21 @@ class Action<Tipo> {
     }
 
     public void execute(Tipo obj) {
-        executor.execute(() -> action.doAction(obj));
+        try {
+            executor.execute(() -> action.doAction(obj));
+            executor.awaitTermination(2, TimeUnit.SECONDS);
+        }catch (InterruptedException ex){
+            // desprezar
+        }
     }
 
     public void execute() {
+        try {
         executor.execute(() -> action.doAction(null));
+        executor.awaitTermination(2, TimeUnit.SECONDS);
+        }catch (InterruptedException ex){
+            // desprezar
+        }
     }
 }
 
